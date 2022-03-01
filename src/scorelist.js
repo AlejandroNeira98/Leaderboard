@@ -1,6 +1,5 @@
 export default class ScoreList {
-
-  constructor () {
+  constructor() {
     this.list = [];
   }
 
@@ -18,12 +17,12 @@ export default class ScoreList {
   }
 
   populateHTML() {
-  const ScoresDiv = document.getElementById('scores');
-  ScoresDiv.innerHTML = '';
-    this.list.forEach(obj => {
+    const ScoresDiv = document.getElementById('scores');
+    ScoresDiv.innerHTML = '';
+    this.list.forEach((obj) => {
       const scoreDiv = document.createElement('div');
       scoreDiv.innerText = `${obj.name}: ${obj.score}`;
-      ScoresDiv.appendChild(scoreDiv);    
+      ScoresDiv.appendChild(scoreDiv);
     });
   }
 }
