@@ -1,3 +1,20 @@
+const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/cheXh8TzhG7oVxtMiAk6/scores/';
+
+async function submit(user, score) {
+  await fetch(url, {
+    method: 'POST',
+    body: JSON.stringify({
+      user: `${user}`,
+      score: `${score}`,
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
+    .then((response) => response.json())
+    .then((json) => console.log(json));
+}
+
 export default class ScoreList {
   constructor() {
     this.list = [];
@@ -5,11 +22,11 @@ export default class ScoreList {
 
   addScore() {
     const obj = {};
-    obj.name = document.getElementById('name').value;
+    obj.user = document.getElementById('name').value;
     obj.score = document.getElementById('score').value;
-    if (obj.name !== '' && obj.value !== '') {
+    if (obj.user !== '' && obj.value !== '') {
       this.list.push(obj);
-      console.log(this.list);
+      submit(obj.user, obj.score);
     }
     this.populateHTML();
     document.getElementById('name').value = null;
@@ -21,8 +38,14 @@ export default class ScoreList {
     ScoresDiv.innerHTML = '';
     this.list.forEach((obj) => {
       const scoreDiv = document.createElement('div');
-      scoreDiv.innerText = `${obj.name}: ${obj.score}`;
+      scoreDiv.innerText = `${obj.user}: ${obj.score}`;
       ScoresDiv.appendChild(scoreDiv);
     });
+  }
+
+  async refresh() {
+    this.response = await fetch(url).then((response) => response.json());
+    this.list = this.response.result;
+    this.populateHTML();
   }
 }
