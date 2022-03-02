@@ -10,9 +10,7 @@ async function submit(user, score) {
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
     },
-  })
-    .then((response) => response.json())
-    .then((json) => console.log(json));
+  });
 }
 
 export default class ScoreList {
