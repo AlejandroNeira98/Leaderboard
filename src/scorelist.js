@@ -11,7 +11,7 @@ const submit = async (user, score) => {
       'Content-type': 'application/json; charset=UTF-8',
     },
   });
-}
+};
 
 export default class ScoreList {
   constructor() {
