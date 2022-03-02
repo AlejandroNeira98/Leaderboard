@@ -1,14 +1,12 @@
-import _ from 'lodash';
 import './style.css';
+import ScoreList from './scorelist';
 
- function component() {
-   const element = document.createElement('div');
+const leaderboard = new ScoreList();
 
-  // Lodash, currently included via a script, is required for this line to work
-  // Lodash, now imported by this script
-   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-   return element;
- }
-
- document.body.appendChild(component());
+window.onload = () => {
+  document.getElementById('submit').addEventListener('click', (e) => {
+    e.preventDefault();
+    leaderboard.addScore();
+    console.log('button works');
+  });
+};
