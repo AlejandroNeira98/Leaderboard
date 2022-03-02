@@ -1,6 +1,6 @@
 const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/cheXh8TzhG7oVxtMiAk6/scores/';
 
-async function submit(user, score) {
+const submit = async (user, score) => {
   await fetch(url, {
     method: 'POST',
     body: JSON.stringify({
