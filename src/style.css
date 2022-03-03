@@ -1,7 +1,36 @@
 body {
+  height: 100vh;
   background: rgb(2, 0, 36);
-  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+  background: linear-gradient(90deg, rgba(255, 223, 0, 1) 0%, rgba(153, 101, 21, 1) 35%, rgb(212, 175, 55) 80%);
   color: white;
+  animation-duration: 4s;
+  animation-iteration-count: 2;
+  animation-timing-function: ease-in-out;
+  animation-name: background_;
+}
+
+@keyframes background_ {
+  from {
+    background: linear-gradient(90deg, rgba(255, 223, 0, 1) 0%, rgba(153, 101, 21, 1) 35%, rgb(212, 175, 55) 80%);
+  }
+
+  33% {
+    background: linear-gradient(180deg, #d8d8d8 0%, #757575 35%, #b5b7bb 80%);
+  }
+
+  66% {
+    background: linear-gradient(360deg, rgba(205, 127, 50, 1) 0%, rgba(118, 60, 40, 1) 35%, rgb(148, 93, 65) 80%);
+  }
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: 0 0 5% 0;
 }
 
 button {
@@ -19,6 +48,19 @@ button:hover {
 main {
   display: flex;
   justify-content: space-evenly;
+  animation-duration: 8s;
+  animation-name: main_;
+  margin: 15%;
+}
+
+@keyframes main_ {
+  from {
+    margin: 0;
+  }
+
+  to {
+    margin: 15%;
+  }
 }
 
 #scores-header {
