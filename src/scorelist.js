@@ -1,4 +1,4 @@
-const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/cheXh8TzhG7oVxtMiAk6/scores/';
+const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/qRwmgdoG88ICPTNGbqdv/scores/';
 
 const submit = async (user, score) => {
   await fetch(url, {
@@ -34,10 +34,12 @@ export default class ScoreList {
   populateHTML() {
     const ScoresDiv = document.getElementById('scores');
     ScoresDiv.innerHTML = '';
+    let i = 0;
     this.list.forEach((obj) => {
       const scoreDiv = document.createElement('div');
       scoreDiv.innerText = `${obj.user}: ${obj.score}`;
-      ScoresDiv.appendChild(scoreDiv);
+      setTimeout(() => { ScoresDiv.appendChild(scoreDiv); }, i);
+      i += 1100;
     });
   }
 
